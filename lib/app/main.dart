@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:providerteste/getX/menu_page_getx.dart';
+import 'package:providerteste/mobx/menu_page_mobx.dart';
 import 'package:providerteste/provider/counter/count_provider.dart';
 import 'package:providerteste/provider/list/task_provider.dart';
 import 'package:providerteste/provider/menu_page_provider.dart';
@@ -31,7 +34,7 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Prov/MobX/GetX',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -58,15 +61,15 @@ class HomeMenu extends StatelessWidget {
               color: Colors.blue,
             ),
             const SizedBox(height: 30),
-            MenuButton(
+            const MenuButton(
               text: 'MobX',
-              page: CounterPageMobx(),
+              page: MenuMobxPage(),
               color: Colors.purple,
             ),
             const SizedBox(height: 30),
             MenuButton(
               text: 'GetX',
-              page: CounterPageMobx(),
+              page: const MenuGetXPage(),
               color: Colors.purple.shade400,
             ),
           ],

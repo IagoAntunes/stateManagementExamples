@@ -1,17 +1,33 @@
 import 'package:mobx/mobx.dart';
 
-class CounterMobx {
-  final _contador = Observable(0);
-  int get contador => _contador.value;
+part 'counter_mobx.g.dart';
 
-  late Action incrementar;
-  set contador(int newValue) => _contador.value = newValue;
+class CounterMobx = _CounterMobx with _$CounterMobx;
 
-  void _incrementar() {
-    _contador.value++;
-  }
+abstract class _CounterMobx with Store {
+  @observable
+  int contador = 0;
 
-  CounterMobx() {
-    incrementar = Action(_incrementar);
+  @action
+  incrementar() {
+    contador++;
   }
 }
+
+
+
+// class CounterMobx {
+//   final _contador = Observable(0);
+//   int get contador => _contador.value;
+
+//   late Action incrementar;
+//   set contador(int newValue) => _contador.value = newValue;
+
+//   void _incrementar() {
+//     _contador.value++;
+//   }
+
+//   CounterMobx() {
+//     incrementar = Action(_incrementar);
+//   }
+// }
